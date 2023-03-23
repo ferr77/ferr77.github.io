@@ -169,6 +169,11 @@ p {
     margin: 0 auto;
 }
 
+.footer-section img {
+    width: 100px;
+    border-radius: 20%;
+}
+
 h3 {
     font-family: 'comic sans ms';
     font-weight: 800;
