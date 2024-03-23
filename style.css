@@ -145,7 +145,7 @@ p {
 }
 
 .kartu-partner img {
-    width: 100px;
+    width: 50px;
     border-radius: 50%;
 }
 
@@ -229,6 +229,6 @@ h3 {
     }
 
     .kartu-partner {
-        width: 50%;
+        width: 20%;
     }
 }
