@@ -1,82 +1,403 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ferr77</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Feri Juliansyah</title>
+
+  <style>
+    :root {
+      --bg: #f4f4f4;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #555;
+      --accent: #2d3748
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --text: #e6eef8;
+      --muted: #9fb0c8;
+      --accent: #60a5fa
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background .25s, color .25s
+    }
+
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 36px 20px;
+      text-align: center
+    }
+
+    header .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem
+    }
+
+    header .controls {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 20px
+    }
+
+    .hero {
+      display: flex;
+      gap: 24px;
+      align-items: center
+    }
+
+    .hero .intro {
+      flex: 1
+    }
+
+    .typewriter {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--muted);
+      min-height: 28px
+    }
+
+    .cta {
+      margin-top: 14px
+    }
+
+    button {
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 0
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+      margin-bottom: 18px
+    }
+
+    h2 {
+      margin-top: 0
+    }
+
+    .skills span {
+      display: inline-block;
+      margin: 6px 6px 6px 0;
+      padding: 8px 12px;
+      background: #eef2ff;
+      border-radius: 8px
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px
+    }
+
+    .project {
+      padding: 14px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
+      cursor: pointer
+    }
+
+    .footer {
+      padding: 20px;
+      text-align: center;
+      color: var(--muted)
+    }
+
+    .hidden {
+      display: none
+    }
+
+    /* modal */
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,0.6);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:99999;
+      pointer-events:auto;
+    }
+
+    .modal{
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      max-width:720px;
+      width:96%;
+      position:relative;
+      z-index:100000;
+    }
+
+    .hidden{ display:none }
+
+    /* small */
+    @media(max-width:700px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start
+      }
+    }
+  </style>
+
 </head>
-<body>
-    <nav>
-        <div class="wrapper">
-            <div class="logo"><a href=''>ferr77</a></div>
-            <div class="menu">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#partners">Partners</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://youtu.be/dQw4w9WgXcQ" class="tbl-biru">Sign Up</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <iframe src="https://chromedino.com/" frameborder="0" scrolling="no" width="100%" height="100%" loading="lazy"></iframe>
-<style type="text/css">iframe { position: absolute; width: 100%; height: 100%; z-index: 999; }</style>
-    <div class="wrapper">
-        <!-- untuk home -->
-        <section id="home">
-            <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?size=626&ext=jpg&ga=GA1.2.1769275626.1605867161"/>
-            <div class="kolom">
-                <p class="deskripsi">Belajar Programming #DirumahAja</p>
-                <h2>Teruslah Bernafas</h2>
-                <p><a href="https://youtu.be/dQw4w9WgXcQ" class="tbl-pink">Pelajari Lebih Lanjut</a></p>
-            </div>
-        </section>
+<body data-theme="light">
 
-        <!-- untuk partners -->
-        <section id="partners">
-            <div class="tengah">
-                <div class="kolom">
-                    <h2>Partners</h2>
-                </div>
-                <div class="partner-list">
-                    <div class="kartu-partner">
-                        <img src="https://yt3.googleusercontent.com/2qk8CCecEec6j5IQ84Pubb-YIK28m7AgoW9idgEWaZpAtWkxs2eJ9zrZ6srAgw8kRzMoRITl=s176-c-k-c0x00ffffff-no-rj"/>
-                    </div>
-                    <div class="kartu-partner">
-                        <img src="https://yt3.googleusercontent.com/ytc/AL5GRJWtOHY3MuwJ45weN8YeXsgxBBO_MrfC3_j7iG9x=s900-c-k-c0x00ffffff-no-rj"/>
-                    </div>
-                    <div class="kartu-partner">
-                        <img src="https://yt3.googleusercontent.com/ytc/AL5GRJVF6TzDr1RBp4l4eopBWKnpHudDn3rI3mp7sbEs_A=s176-c-k-c0x00ffffff-no-rj"/>
-                </div>
-            </div>
-        </section>
+  <header>
+    <div class="top">
+      <h1>Feri Juliansyah</h1>
+      <div class="controls">
+        <button id="themeToggle" aria-label="toggle theme">🌙</button>
+        <a href="#contact"><button class="btn-primary">Kontak</button></a>
+      </div>
     </div>
+    <p style="margin-top:14px;opacity:.95">Lulusan Sistem Informasi</p>
+  </header>
 
-    <div id="contact">
-        <div class="wrapper">
-            <div class="footer">
-                <div class="footer-section">
-                    <h3>About</h3>
-                    <a href="https://youtu.be/dQw4w9WgXcQ"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFVGKxhZxrAxcFYpA6TpIgVVTtyfn55mZKThP3Y6ZE0zpe-XXoxTgyIV_&s=10"></a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <a href="https://github.com/ferr77"><img src="https://p.kindpng.com/picc/s/128-1280187_github-logo-png-github-transparent-png.png"> </a>
-                </div>
-                <div class="footer-section">
-                    <h3>Social</h3>
-                    <a href="https://www.instagram.com/superxen_"><img src="https://www.kindpng.com/picc/m/159-1596109_logo-instagram-vector-2017-hd-png-download.png" alt="Logo Instagram Vector 2017,HDRQ&Download@kindpng.com"></a>
-                </div>
-            </div>
-        </div>
-    </div>
+  <main class="container">
 
-    <div id="copyright">
-        <div class="wrapper">
-            &copy; 2024 ferr77, Inc.
+    <section class="hero card" id="home" style="display:flex;gap:24px;align-items:center">
+      <div class="intro">
+        <h2>Hai — saya Feri</h2>
+        <div class="typewriter" id="typewriter"></div>
+        <p style="margin-top:12px;max-width:680px">
+          Saya membuat sistem informasi akademik untuk kebutuhan madrasah dan pemerintahan desa.
+          Fokus pada CodeIgniter, MySQL, serta UI sederhana yang mudah digunakan.
+        </p>
+        <div class="cta">
+          <a href="#projects"><button class="btn-primary">Lihat Proyek</button></a>
+          <button id="downloadCV">Unduh CV</button>
         </div>
+      </div>
+      <div style="min-width:220px;text-align:center">
+        <img id="avatar" src="https://ferr77.github.io/IMG_20251008_234104.jpg"
+             alt="Foto Feri"
+             style="width:180px;border-radius:12px;border:6px solid rgba(0,0,0,0.04)" />
+      </div>
+    </section>
+
+    <section class="card" id="about">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya adalah lulusan Program Studi Sistem Informasi di UIN STS Jambi. Tugas akhir saya membangun sistem informasi akademik
+        berbasis web untuk madrasah.
+      </p>
+
+      <div class="skills" style="margin-top:10px">
+        <span>PHP</span>
+        <span>CodeIgniter</span>
+        <span>MySQL</span>
+        <span>HTML/CSS</span>
+        <span>JavaScript</span>
+        <span>Bootstrap</span>
+      </div>
+    </section>
+
+    <section class="card" id="projects">
+      <h2>Proyek Unggulan</h2>
+
+      <div class="projects" id="projectsGrid">
+
+        <div class="project"
+             data-title="Sistem Informasi Akademik"
+             data-desc="Sistem akademik untuk MDTA — modul nilai, absensi, jadwal, laporan."
+             tabindex="0">
+          <strong>Sistem Informasi Akademik MDTA</strong>
+          <p style="font-size:.9rem;color:var(--muted);margin-top:8px">CodeIgniter, MySQL, PDF Report</p>
+        </div>
+
+        <div class="project"
+             data-title="Aplikasi Pengajuan Surat Desa"
+             data-desc="Form online untuk pengajuan surat administrasi desa."
+             tabindex="0">
+          <strong>Aplikasi Pengajuan Surat Desa</strong>
+          <p style="font-size:.9rem;color:var(--muted);margin-top:8px">PHP, JS, Form Validation</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>Kontak</h2>
+
+      <form id="contactForm">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="name" placeholder="Nama" required
+                 style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+          <input id="email" placeholder="Email" required
+                 style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+        </div>
+
+        <textarea id="message" placeholder="Pesan" rows="4" required
+                  style="width:100%;margin-top:8px;padding:10px;border-radius:8px;border:1px solid #ddd"></textarea>
+
+        <div style="margin-top:8px">
+          <button type="submit" class="btn-primary">Kirim Pesan</button>
+        </div>
+      </form>
+
+      <p id="formFeedback" style="margin-top:10px;color:green;display:none">
+        Pesan telah dikirim (demo).
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer card">
+    © 2025 Feri Juliansyah — Portofolio Web (Status: Lulusan)
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div style="text-align:right;margin-top:12px">
+        <button id="closeModal">Tutup</button>
+      </div>
     </div>
-    
+  </div>
+  <script>
+    /* ===============================
+       DARK / LIGHT THEME TOGGLE
+    =============================== */
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    themeToggle.addEventListener("click", () => {
+      const now = body.getAttribute("data-theme") === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", now);
+      themeToggle.textContent = now === "dark" ? "☀️" : "🌙";
+    });
+
+    /* ===============================
+       TYPEWRITER TEXT
+    =============================== */
+    const typewriter = document.getElementById("typewriter");
+    const texts = [
+      "Web Developer",
+      "CodeIgniter Specialist",
+      "Fullstack PHP",
+      "Lulusan Sistem Informasi"
+    ];
+    let TW_i = 0, TW_j = 0, TW_delete = false;
+
+    function runType() {
+      const word = texts[TW_i];
+      if (!TW_delete && TW_j < word.length) {
+        typewriter.textContent = word.substring(0, TW_j + 1);
+        TW_j++;
+        setTimeout(runType, 110);
+      } else if (TW_delete && TW_j > 0) {
+        typewriter.textContent = word.substring(0, TW_j - 1);
+        TW_j--;
+        setTimeout(runType, 60);
+      } else {
+        TW_delete = !TW_delete;
+        if (!TW_delete) TW_i = (TW_i + 1) % texts.length;
+        setTimeout(runType, 900);
+      }
+    }
+    runType();
+
+    /* ===============================
+       MODAL SYSTEM (100% FIX)
+    =============================== */
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalTitle    = document.getElementById("modalTitle");
+    const modalDesc     = document.getElementById("modalDesc");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    function openModal(title, desc) {
+      modalTitle.textContent = title;
+      modalDesc.textContent  = desc;
+      modalBackdrop.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // kunci scroll
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+
+    // Tutup saat klik tombol
+    closeModalBtn.addEventListener("click", closeModal);
+
+    // Tutup saat klik area luar modal
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    // Tutup saat tekan ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Project cards → buka modal
+    document.querySelectorAll(".project").forEach(card => {
+      card.addEventListener("click", () => {
+        openModal(card.dataset.title, card.dataset.desc);
+      });
+      card.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") openModal(card.dataset.title, card.dataset.desc);
+      });
+    });
+
+    /* ===============================
+       CONTACT FORM DEMO
+    =============================== */
+    const form = document.getElementById("contactForm");
+    const feedback = document.getElementById("formFeedback");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      feedback.style.display = "block";
+      form.reset();
+      setTimeout(() => feedback.style.display = "none", 3000);
+    });
+
+    /* ===============================
+       DOWNLOAD CV (dummy)
+    =============================== */
+    document.getElementById("downloadCV").addEventListener("click", () => {
+      alert("CV belum diupload. Tambahkan file CV Anda.");
+    });
+  </script>
+
 </body>
 </html>
