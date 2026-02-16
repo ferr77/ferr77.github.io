@@ -186,7 +186,7 @@
         <a href="#contact"><button class="btn-primary">Kontak</button></a>
       </div>
     </div>
-    <p style="margin-top:14px;opacity:.95">Lulusan Sistem Informasi</p>
+    <p style="margin-top:14px;opacity:.95">Portfolio</p>
   </header>
 
   <main class="container">
@@ -196,12 +196,15 @@
         <h2>Hai — saya Feri</h2>
         <div class="typewriter" id="typewriter"></div>
         <p style="margin-top:12px;max-width:680px">
-          Saya membuat sistem informasi akademik untuk kebutuhan madrasah dan pemerintahan desa.
-          Fokus pada CodeIgniter, MySQL, serta UI sederhana yang mudah digunakan.
+          Memiliki latar belakang Sistem Informasi dengan kemampuan dalam pengembangan aplikasi web,
+          pengolahan data, serta penggunaan aplikasi perkantoran untuk mendukung operasional dan administrasi.
+          Terbiasa bekerja secara terstruktur, teliti, dan berbasis sistem.
         </p>
         <div class="cta">
           <a href="#projects"><button class="btn-primary">Lihat Proyek</button></a>
-          <button id="downloadCV">Unduh CV</button>
+          <a href="cv-feri-juliansyah.pdf" download>
+            <button>Unduh CV</button>
+          </a>
         </div>
       </div>
       <div style="min-width:220px;text-align:center">
@@ -214,17 +217,30 @@
     <section class="card" id="about">
       <h2>Tentang Saya</h2>
       <p>
-        Saya adalah lulusan Program Studi Sistem Informasi di UIN STS Jambi. Tugas akhir saya membangun sistem informasi akademik
-        berbasis web untuk madrasah.
+        Lulusan Sarjana (S1) Sistem Informasi dengan pengalaman magang di bidang administrasi 
+        dan pengolahan data. Terbiasa menggunakan komputer dan aplikasi perkantoran untuk 
+        mendukung pekerjaan operasional. Memiliki sikap kerja yang disiplin, teliti, dan bertanggung 
+        jawab. Mampu bekerja secara mandiri maupun dalam tim serta bersedia ditempatkan sesuai 
+        kebutuhan perusahaan.
       </p>
 
       <div class="skills" style="margin-top:10px">
+
+        <strong>Technical Skills:</strong><br>
         <span>PHP</span>
         <span>CodeIgniter</span>
         <span>MySQL</span>
         <span>HTML/CSS</span>
         <span>JavaScript</span>
-        <span>Bootstrap</span>
+
+        <br><br>
+        <strong>Office & Administration:</strong><br>
+        <span>Microsoft Word</span>
+        <span>Microsoft Excel</span>
+        <span>Microsoft PowerPoint</span>
+        <span>Data Entry</span>
+        <span>Document Management</span>
+
       </div>
     </section>
 
@@ -234,19 +250,24 @@
       <div class="projects" id="projectsGrid">
 
         <div class="project"
-             data-title="Sistem Informasi Akademik"
-             data-desc="Sistem akademik untuk MDTA — modul nilai, absensi, jadwal, laporan."
-             tabindex="0">
-          <strong>Sistem Informasi Akademik MDTA</strong>
-          <p style="font-size:.9rem;color:var(--muted);margin-top:8px">CodeIgniter, MySQL, PDF Report</p>
-        </div>
-
-        <div class="project"
-             data-title="Aplikasi Pengajuan Surat Desa"
-             data-desc="Form online untuk pengajuan surat administrasi desa."
-             tabindex="0">
-          <strong>Aplikasi Pengajuan Surat Desa</strong>
-          <p style="font-size:.9rem;color:var(--muted);margin-top:8px">PHP, JS, Form Validation</p>
+            data-title="Sistem Informasi Akademik Berbasis Web"
+            data-desc="Prototipe sistem akademik berbasis web yang dikembangkan sebagai solusi digital untuk pengelolaan nilai, absensi, dan jadwal. 
+            Memiliki 3 jenis pengguna (Admin, Guru, Siswa) dengan sistem hak akses dan laporan PDF. 
+            Dibangun menggunakan CodeIgniter dan MySQL dengan pendekatan terstruktur."
+            tabindex="0">
+          <strong>Sistem Informasi Akademik Berbasis Web</strong>
+          <p style="font-size:.9rem;color:var(--muted);margin-top:8px">
+            CodeIgniter • MySQL • Role-Based Access • PDF Reporting
+          </p>
+          <div style="margin-top:12px">
+            <a href="https://feri.wuaze.com" target="_blank">
+              <button class="btn-primary">Live Demo</button>
+            </a>
+            <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">
+            Demo Login:<br>
+            Admin → username: admin | password: admin
+            </p>
+          </div>
         </div>
 
       </div>
@@ -279,7 +300,7 @@
   </main>
 
   <footer class="footer card">
-    © 2025 Feri Juliansyah — Portofolio Web (Status: Lulusan)
+    © 2025 Feri Juliansyah — Portofolio Web
   </footer>
 
   <!-- MODAL -->
@@ -310,10 +331,10 @@
     =============================== */
     const typewriter = document.getElementById("typewriter");
     const texts = [
+      "Information Systems Graduate",
       "Web Developer",
-      "CodeIgniter Specialist",
-      "Fullstack PHP",
-      "Lulusan Sistem Informasi"
+      "Data Processing & Administration",
+      "Microsoft Office & Digital Tools"
     ];
     let TW_i = 0, TW_j = 0, TW_delete = false;
 
@@ -389,13 +410,6 @@
       feedback.style.display = "block";
       form.reset();
       setTimeout(() => feedback.style.display = "none", 3000);
-    });
-
-    /* ===============================
-       DOWNLOAD CV (dummy)
-    =============================== */
-    document.getElementById("downloadCV").addEventListener("click", () => {
-      alert("CV belum diupload. Tambahkan file CV Anda.");
     });
   </script>
 
