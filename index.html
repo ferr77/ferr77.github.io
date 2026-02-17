@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio Feri Juliansyah</title>
+  <title>Portfolio Feri Juliansyah</title>
 
   <style>
     :root {
@@ -173,6 +173,40 @@
         align-items: flex-start
       }
     }
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .email-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .email-icon:hover {
+      transform: scale(1.1);
+      background: #2563eb;
+    }
+
   </style>
 
 </head>
@@ -278,29 +312,47 @@
 
       <form id="contactForm">
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <input id="name" placeholder="Nama" required
-                 style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
-          <input id="email" placeholder="Email" required
-                 style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+          <input type="text" name="from_name" placeholder="Nama" required
+                style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+          <input type="email" name="reply_to" placeholder="Email" required
+                style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
         </div>
 
-        <textarea id="message" placeholder="Pesan" rows="4" required
+        <textarea name="message" placeholder="Pesan" rows="4" required
                   style="width:100%;margin-top:8px;padding:10px;border-radius:8px;border:1px solid #ddd"></textarea>
 
         <div style="margin-top:8px">
-          <button type="submit" class="btn-primary">Kirim Pesan</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Kirim Pesan</button>
         </div>
       </form>
 
-      <p id="formFeedback" style="margin-top:10px;color:green;display:none">
-        Pesan telah dikirim (demo).
-      </p>
+      <p id="formFeedback" style="margin-top:10px;display:none"></p>
+      
+      <div style="margin-top:20px;text-align:center">
+
+        <a href="mailto:ferijuliansyah773@gmail.com?subject=Kontak%20dari%20Portfolio%20Website"
+          class="email-icon"
+          title="Kirim Email Langsung">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+              viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v0.217L8 8 0 4.217V4z"/>
+            <path d="M0 4.697v7.104l5.803-3.551L0 4.697zM6.761 8.83l-6.761 4.13A2 2 0 0 0 2 14h12a2 2 0 0 0 2-1.04l-6.761-4.13L8 9.583l-1.239-.753zM16 4.697l-5.803 3.553L16 11.801V4.697z"/>
+          </svg>
+
+        </a>
+
+        <p style="margin-top:8px;font-size:.9rem;color:var(--muted)">
+          Atau kirim langsung ke: <strong>ferijuliansyah773@gmail.com</strong>
+        </p>
+
+      </div>
     </section>
 
   </main>
 
   <footer class="footer card">
-    © 2025 Feri Juliansyah — Portofolio Web
+    © 2026 Feri Juliansyah — Portfolio Web
   </footer>
 
   <!-- MODAL -->
@@ -313,6 +365,7 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     /* ===============================
        DARK / LIGHT THEME TOGGLE
@@ -400,18 +453,63 @@
     });
 
     /* ===============================
-       CONTACT FORM DEMO
+       CONTACT FORM
     =============================== */
+    (function() {
+      emailjs.init("joRShYOqMsVchOv0z"); // ganti dengan Public Key
+    })();
+
     const form = document.getElementById("contactForm");
     const feedback = document.getElementById("formFeedback");
+    const submitBtn = document.getElementById("submitBtn");
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", function(e){
       e.preventDefault();
-      feedback.style.display = "block";
-      form.reset();
-      setTimeout(() => feedback.style.display = "none", 3000);
-    });
-  </script>
 
+      // Aktifkan loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="spinner"></span>Mengirim...`;
+
+      const now = new Date();
+      const timeString = now.toLocaleString("id-ID", {
+        dateStyle: "full",
+        timeStyle: "medium"
+      });
+
+      const templateParams = {
+        from_name: form.from_name.value,
+        reply_to: form.reply_to.value,
+        message: form.message.value,
+        time: timeString
+      };
+
+      emailjs.send("service_9m9at3q", "template_agm9xsz", templateParams)
+        .then(function() {
+
+          feedback.style.display = "block";
+          feedback.style.color = "green";
+          feedback.textContent = "Pesan berhasil dikirim!";
+
+          form.reset();
+
+          // Reset tombol
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "Kirim Pesan";
+
+        }, function(error) {
+
+          feedback.style.display = "block";
+          feedback.style.color = "red";
+          feedback.textContent = "Terjadi kesalahan. Coba lagi.";
+
+          // Reset tombol
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "Kirim Pesan";
+
+          console.error(error);
+        });
+    });
+
+  </script>
 </body>
 </html>
