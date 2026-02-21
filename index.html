@@ -35,29 +35,56 @@
     }
 
     header {
+      position: relative;
       background: var(--accent);
       color: #fff;
-      padding: 36px 20px;
+      padding: 50px 20px;
       text-align: center
     }
 
-    header .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto
-    }
-
-    header h1 {
+    .main-title {
       margin: 0;
-      font-size: 2rem
+      font-size: 2rem;
     }
 
-    header .controls {
-      display: flex;
-      gap: 12px;
-      align-items: center
+    .subtitle {
+      margin-top: 10px;
+      opacity: .95;
+    }
+
+    .contact-wrapper {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .contact-wrapper .btn-primary {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-shadow: 
+        0 0 5px rgba(255,255,255,0.8),
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 15px rgba(255,255,255,0.4);
+    }
+
+    .contact-wrapper .btn-primary:hover {
+      text-shadow: 
+        0 0 8px rgba(255,255,255,1),
+        0 0 18px rgba(255,255,255,0.8),
+        0 0 25px rgba(255,255,255,0.6);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
     }
 
     .container {
@@ -213,14 +240,10 @@
 <body data-theme="light">
 
   <header>
-    <div class="top">
-      <h1>Feri Juliansyah</h1>
-      <div class="controls">
-        <button id="themeToggle" aria-label="toggle theme">🌙</button>
-        <a href="#contact"><button class="btn-primary">Kontak</button></a>
-      </div>
-    </div>
-    <p style="margin-top:14px;opacity:.95">Portfolio</p>
+      <a href="#contact" class="contact-wrapper"><button class="btn-primary">Kontak</button></a>
+    <button id="themeToggle" class="theme-toggle" aria-label="toggle theme">🌙</button>
+    <h1 class="main-title">Feri Juliansyah</h1>
+    <p class="subtitle">Portfolio</p>
   </header>
 
   <main class="container">
@@ -273,7 +296,7 @@
         <span>Microsoft Excel</span>
         <span>Microsoft PowerPoint</span>
         <span>Data Entry</span>
-        <span>Document Management</span>
+        <span>Administrative Support</span>
 
       </div>
     </section>
@@ -298,8 +321,7 @@
               <button class="btn-primary">Live Demo</button>
             </a>
             <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">
-            Demo Login:<br>
-            Admin → username: admin | password: admin
+            <strong>Demo Login <br> Username: admin <br> Password: admin</strong>
             </p>
           </div>
         </div>
