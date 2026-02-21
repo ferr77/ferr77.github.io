@@ -139,11 +139,17 @@
     }
 
     .skills span {
+      background: #eef2ff;
+      color: #222;
+      border-radius: 8px;
       display: inline-block;
       margin: 6px 6px 6px 0;
       padding: 8px 12px;
-      background: #eef2ff;
-      border-radius: 8px
+    }
+
+    [data-theme="dark"] .skills span {
+      background: #1e293b;
+      color: #e6eef8;
     }
 
     .projects {
@@ -352,7 +358,7 @@
       
       <div style="margin-top:20px;text-align:center">
 
-        <a href="mailto:ferijuliansyah773@gmail.com?subject=Kontak%20dari%20Portfolio%20Website"
+        <a href="mailto:ferijuliansyah773@gmail.com"
           class="email-icon"
           title="Kirim Email Langsung">
           
@@ -365,7 +371,10 @@
         </a>
 
         <p style="margin-top:8px;font-size:.9rem;color:var(--muted)">
-          Atau kirim langsung ke: <strong>ferijuliansyah773@gmail.com</strong>
+          Atau kirim langsung ke: 
+          <a href="mailto:ferijuliansyah773@gmail.com" style="color:var(--accent);">
+          <strong>ferijuliansyah773@gmail.com</strong>
+          </a>
         </p>
 
       </div>
