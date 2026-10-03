@@ -1,0 +1,160 @@
+---
+---
+
+<header class="navbar">
+
+	<div class="nav-container">
+
+		<a href="/" class="logo">
+			FERI<span>.</span>
+		</a>
+
+		<nav class="nav-menu" id="navMenu">
+			<a href="/#about" data-section="about">About</a>
+            <a href="/#projects" data-section="projects">Projects</a>
+            <a href="/#skills" data-section="skills">Skills</a>
+            <a href="/#experience" data-section="experience">Journey</a>
+		</nav>
+
+		<div class="nav-actions">
+
+            <a
+                href="/cv-fer-eng.pdf"
+                class="nav-contact"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View CV
+            </a>
+
+			<a href="/#contact" class="nav-contact">
+				Let's talk
+			</a>
+
+			<button
+                type="button"
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+		</div>
+
+	</div>
+
+</header>
+
+<script>
+	const toggle = document.getElementById("navToggle");
+	const menu = document.getElementById("navMenu");
+
+	if (toggle && menu) {
+
+		toggle.addEventListener("click", () => {
+
+			const isOpen =
+				toggle.getAttribute("aria-expanded") === "true";
+
+			toggle.setAttribute(
+				"aria-expanded",
+				String(!isOpen)
+			);
+
+			menu.classList.toggle("is-open", !isOpen);
+
+			document.body.classList.toggle(
+				"menu-open",
+				!isOpen
+			);
+
+			console.log(
+				"menu:",
+				menu.className
+			);
+
+		});
+
+
+		menu.querySelectorAll("a").forEach((link) => {
+
+			link.addEventListener("click", () => {
+
+				toggle.setAttribute(
+					"aria-expanded",
+					"false"
+				);
+
+				menu.classList.remove("is-open");
+
+				document.body.classList.remove(
+					"menu-open"
+				);
+
+			});
+
+		});
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 30) {
+                document.body.classList.add("scrolled");
+            } else {
+                document.body.classList.remove("scrolled");
+            }
+
+        });
+
+        const sectionLinks =
+            menu.querySelectorAll("[data-section]");
+
+        const sections =
+            document.querySelectorAll(
+                "#about, #projects, #skills, #experience"
+            );
+
+
+        function updateActiveSection() {
+
+            let currentSection = null;
+
+            const triggerPoint = 180;
+
+            sections.forEach((section) => {
+
+                const rect =
+                    section.getBoundingClientRect();
+
+                if (rect.top <= triggerPoint) {
+                    currentSection = section.id;
+                }
+
+            });
+
+
+            sectionLinks.forEach((link) => {
+
+                link.classList.toggle(
+                    "active",
+                    link.dataset.section === currentSection
+                );
+
+            });
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateActiveSection,
+            { passive: true }
+        );
+
+        updateActiveSection();
+
+	}
+</script>
